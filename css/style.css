@@ -64,7 +64,7 @@ a:focus {
     display: none;
     background: #D72428;
     color: #0D0D0D;
-    border: 2px solid #196E38;
+    border: 2px solid rgba(25, 110, 56, 0.5);
     width: 44px;
     height: 44px;
     text-align: center;
@@ -80,7 +80,7 @@ a:focus {
 .back-to-top:hover {
     color: #D72428;
     background: #0D0D0D;
-    border: 2px solid #196E38;
+    border: 2px solid rgba(25, 110, 56, 0.5);
     border-radius: 25px;
 }
 
