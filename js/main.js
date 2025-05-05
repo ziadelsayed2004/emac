@@ -135,3 +135,21 @@
     
 })(jQuery);
 
+
+document.querySelectorAll('.service-item').forEach(item => {
+    const tapIcon = item.querySelector('.tap-indicator');
+  
+    item.addEventListener('click', () => {
+      if (tapIcon) tapIcon.style.display = 'none';
+    });
+  
+    item.addEventListener('mouseenter', () => {
+      if (tapIcon) tapIcon.style.display = 'none';
+    });
+  
+    item.addEventListener('mouseleave', () => {
+      if (tapIcon) tapIcon.style.display = 'block';
+    });
+  });
+  
+  
