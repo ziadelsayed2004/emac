@@ -53,7 +53,7 @@ const resources = {
         welcome_p3: "Emac has constructed several successful projects in different industrial fields with top quality and fastest delivery time inside and the Arab Republic of Egypt.",
       }
     }
-  };
+};
 
 let currentLang = localStorage.getItem('lang') || 'en';
 
