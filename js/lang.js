@@ -18,6 +18,12 @@ const resources = {
         email_us: "Email Us",
         email_us_val: "info@emaccon.com",
         get_a_quote: "Get A Quote",
+        welcome_h1: "Welcome to EMAC",
+        welcome_p1: "We guarantee the highest quality workmanship in the construction industry. \n Est. 2013",
+        welcome_h2: "What is the \"Emac\" ?",
+        welcome_p2: "Emac is a company working in the field of contracting since 2013",
+        welcome_h3: "What are EMAC's top projects?",
+        welcome_p3: "Emac has constructed several successful projects in different industrial fields with top quality and fastest delivery time inside and the Arab Republic of Egypt.",
       }
     },
     ar: {
@@ -38,7 +44,13 @@ const resources = {
         call_us_val: "201226035184",
         email_us: "تواصل عبر البريد",
         email_us_val: "info@emaccon.com",
-        get_a_quote: "احصل على سعر",
+        get_a_quote: "احصل على عرض",
+        welcome_h1: "Welcome to EMAC",
+        welcome_p1: "We guarantee the highest quality workmanship in the construction industry. \n Est. 2013",
+        welcome_h2: "What is the \"Emac\" ?",
+        welcome_p2: "Emac is a company working in the field of contracting since 2013",
+        welcome_h3: "What are EMAC's top projects?",
+        welcome_p3: "Emac has constructed several successful projects in different industrial fields with top quality and fastest delivery time inside and the Arab Republic of Egypt.",
       }
     }
   };
@@ -79,5 +91,14 @@ function updateToggleButton() {
 function updateDirection() {
   document.body.dir = (currentLang === 'ar') ? 'rtl' : 'ltr';
 }
+
+function updateContent() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const translated = i18next.t(key).replace(/\n/g, '<br>');
+      el.innerHTML = translated;
+    });
+  }
+  
 
 document.getElementById('langToggle').addEventListener('click', changeLanguage);
