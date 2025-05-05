@@ -623,7 +623,8 @@ a:focus {
     background: #D72428;
 }
 
-.feature .feature-icon [class^="flaticon-"]::before {
+.feature .feature-icon [class^="flaticon-"]::before,
+.feature .feature-icon [class^="fas fa-"]::before {
     position: relative;
     margin: 0;
     color: #D72428;
@@ -651,6 +652,7 @@ a:focus {
 }
 
 .feature .col-md-12:nth-child(2n) [class^="flaticon-"]::before,
+.feature .col-md-12:nth-child(2n) [class^="fas fa-"]::before,
 .feature .col-md-12:nth-child(2n) h3,
 .feature .col-md-12:nth-child(2n) p {
     color: #0D0D0D;
@@ -735,10 +737,11 @@ a:focus {
     justify-content: center;
 }
 
-.fact .fact-icon [class^="flaticon-"]::before {
+.fact .fact-icon [class^="flaticon-"]::before,
+.fact .fact-icon [class^="fas fa-"]::before {
     margin: 0;
-    font-size: 60px;
-    line-height: 60px;
+    font-size: 50px;
+    line-height: 50px;
     background-image: linear-gradient(#ffffff, #D72428);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -755,13 +758,13 @@ a:focus {
 }
 
 .fact .fact-text h2 {
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 700;
 }
 
 .fact .fact-text p {
     margin: 0;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
 }
