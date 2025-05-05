@@ -1,6 +1,7 @@
 const resources = {
     en: {
       translation: {
+        emac_title: "Emac - Contracting & Supplies",
         home: "Home",
         about: "About",
         services: "Services",
@@ -10,10 +11,18 @@ const resources = {
         single_page: "Single Blog",
         contact: "Contact",
         menu: "EMAC",
+        opening_hour: "Opening Hour",
+        opening_hour_val: "Sat - Thu, 8:00 - 9:00",
+        call_us: "Call Us",
+        call_us_val: "201226035184",
+        email_us: "Email Us",
+        email_us_val: "info@emaccon.com",
+        get_a_quote: "Get A Quote",
       }
     },
     ar: {
       translation: {
+        emac_title: "ايماك - البناء والامدادات",
         home: "الرئيسية",
         about: "حول",
         services: "الخدمات",
@@ -23,43 +32,52 @@ const resources = {
         single_page: "مدونة فردية",
         contact: "التواصل",
         menu: "ايماك",
+        opening_hour: "ساعات العمل",
+        opening_hour_val: "السبت - الخميس , 8:00 - 9:00",
+        call_us: "اتصل بنا",
+        call_us_val: "201226035184",
+        email_us: "تواصل عبر البريد",
+        email_us_val: "info@emaccon.com",
+        get_a_quote: "احصل على سعر",
       }
     }
   };
-  
-  let currentLang = 'en';
-  
-  i18next.init({
-    lng: currentLang,
-    resources
-  }, function(err, t) {
+
+let currentLang = localStorage.getItem('lang') || 'en';
+
+i18next.init({
+  lng: currentLang,
+  resources
+}, function(err, t) {
+  updateContent();
+  updateDirection();
+  updateToggleButton();
+});
+
+function changeLanguage() {
+  currentLang = currentLang === 'en' ? 'ar' : 'en';
+  localStorage.setItem('lang', currentLang);
+  i18next.changeLanguage(currentLang, () => {
     updateContent();
+    updateToggleButton();
     updateDirection();
   });
-  
-  function changeLanguage() {
-    currentLang = currentLang === 'en' ? 'ar' : 'en';
-    i18next.changeLanguage(currentLang, () => {
-      updateContent();
-      updateToggleButton();
-      updateDirection();
-    });
-  }
-  
-  function updateContent() {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      el.innerHTML = i18next.t(key);
-    });
-  }
-  
-  function updateToggleButton() {
-    const btn = document.getElementById('langToggle');
-    btn.querySelector('.lang-text').textContent = currentLang.toUpperCase();
-  }
-  
-  function updateDirection() {
-    document.body.dir = (currentLang === 'ar') ? 'rtl' : 'ltr';
-  }
-  
-  document.getElementById('langToggle').addEventListener('click', changeLanguage);  
+}
+
+function updateContent() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.innerHTML = i18next.t(key);
+  });
+}
+
+function updateToggleButton() {
+  const btn = document.getElementById('langToggle');
+  if (btn) btn.querySelector('.lang-text').textContent = currentLang.toUpperCase();
+}
+
+function updateDirection() {
+  document.body.dir = (currentLang === 'ar') ? 'rtl' : 'ltr';
+}
+
+document.getElementById('langToggle').addEventListener('click', changeLanguage);
