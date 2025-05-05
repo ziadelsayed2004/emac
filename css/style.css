@@ -8,6 +8,12 @@ body {
     font-weight: 400;
 }
 
+a:focus,
+button:focus,
+div:focus{
+    outline: none;
+}
+
 .lang-toggle-wrapper {
   position: relative;
   top: 50%;
@@ -16,7 +22,7 @@ body {
 }
 
 .lang-toggle {
-  background-color: #1e1e2f;
+  background-color: #0D0D0D;
   color: white;
   border: none;
   border-radius: 25px;
@@ -30,8 +36,8 @@ body {
 }
 
 .lang-toggle:hover {
-  background-color: #4e4eff;
-  transform: scale(1.05) rotate(2deg);
+  background-color: #196E38;
+  transform: scale(1.1);
 }
 
 .lang-toggle .lang-text {
