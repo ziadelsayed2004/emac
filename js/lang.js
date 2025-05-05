@@ -91,7 +91,7 @@ const resources = {
         fact_clients: "Clients",
         fact_projects: "Projects",
         fact_experience: "Years of Experience",
-        our_services: "Our Services",
+        our_services: "خدماتنا",
         we_provide_services: "We Provide Services",
         service_h1: "Electromechanical work",
         service_p1: "Emac Contracting Company was able to enter the field of electromechanical contracting from its widest doors, as the company helped an integrated team with high efficiency and strong planning and management to carry out various works in the electromechanical field. Supply and installation of :\n\n\n- All electrical works for different factories\n\n- Electrical power and light current systems works, including: (acoustic systems, paging systems, lighting control systems, closed circuit television systems, central time and time control systems) for all types of facilities, public buildings, hotels, hospitals, airports, banks and clubs\n\n- Electric power and communications networks for infrastructure projects\n\n- Medium and low voltage power stations\n\n- Electrical transformers\n\n- Road lighting works\n\n- High, medium and low voltage panels\n\n- Comprehensive control systems control panel and computer systems\n\n- Works of smoke alarm and fire extinguishing systems for various projects and buildings",
