@@ -24,7 +24,13 @@ const resources = {
         welcome_p2: "Emac is a company working in the field of contracting since 2013",
         welcome_h3: "What are EMAC's top projects?",
         welcome_p3: "Emac has constructed several successful projects in different industrial fields with top quality and fastest delivery time inside and the Arab Republic of Egypt.",
-      }
+        experience_h2: "12 Years Experience",
+        about_text: "Emac is a company working in the field of contracting since 2013 and is registered in the Egyptian Federation of Construction and Building Contractors The company owns a highly skilled team of engineers, technicians and trained workers, The company also owns the latest equipment, which enables it to carry out the work assigned to it with high quality and at the time of implementation agreed upon, Emac has constructed several successful projects in different industrial fields with top quality and fastest delivery time inside and Arab Republic of Egypt.",
+        fact_workers: "Employees",
+        fact_clients: "Clients",
+        fact_projects: "Projects",
+        fact_experience: "Years of Experience",
+        }
     },
     ar: {
       translation: {
@@ -51,7 +57,13 @@ const resources = {
         welcome_p2: "Emac is a company working in the field of contracting since 2013",
         welcome_h3: "What are EMAC's top projects?",
         welcome_p3: "Emac has constructed several successful projects in different industrial fields with top quality and fastest delivery time inside and the Arab Republic of Egypt.",
-      }
+        experience_h2: "12 Years Experience",
+        about_text: "Emac is a company working in the field of contracting since 2013 and is registered in the Egyptian Federation of Construction and Building Contractors The company owns a highly skilled team of engineers, technicians and trained workers, The company also owns the latest equipment, which enables it to carry out the work assigned to it with high quality and at the time of implementation agreed upon, Emac has constructed several successful projects in different industrial fields with top quality and fastest delivery time inside and Arab Republic of Egypt.",
+        fact_workers: "Employees",
+        fact_clients: "Clients",
+        fact_projects: "Projects",
+        fact_experience: "Years of Experience",
+        }
     }
 };
 
