@@ -184,7 +184,7 @@ container.addEventListener('mousedown', (e) => {
     isDown = true;
     startX = e.pageX - container.offsetLeft;
     scrollLeft = container.scrollLeft;
-    scrollSpeed = 1;
+    scrollSpeed = 1.5;
 });
 
 container.addEventListener('mouseleave', () => isDown = false);
@@ -202,7 +202,7 @@ container.addEventListener('touchstart', (e) => {
     isDown = true;
     startX = e.touches[0].pageX - container.offsetLeft;
     scrollLeft = container.scrollLeft;
-    scrollSpeed = 1;
+    scrollSpeed = 1.5;
 });
 
 container.addEventListener('touchend', () => isDown = false);
@@ -218,7 +218,7 @@ function startAutoScroll() {
     autoScroll = setInterval(() => {
         if (isScrolling) {
             container.scrollLeft += scrollSpeed;
-            if (container.scrollLeft + container.offsetWidth >= track.scrollWidth) {
+            if (container.scrollLeft >= track.scrollWidth / 2) {
                 container.scrollLeft = 0;
             }
         }
@@ -250,3 +250,4 @@ container.addEventListener('touchend', () => {
 });
 
 startAutoScroll();
+
