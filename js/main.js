@@ -135,7 +135,7 @@ document.querySelectorAll('.service-item').forEach(item => {
 const swiper = new Swiper('.swiper', {
     loop: true,
     autoplay: {
-      delay: 3000,
+      delay: 2500,
       disableOnInteraction: false,
     },
     navigation: {
@@ -146,7 +146,7 @@ const swiper = new Swiper('.swiper', {
       el: '.swiper-pagination',
       clickable: true,
     },
-    effect: 'fade',
+    effect: 'cube',
     speed: 500,
 });
 
