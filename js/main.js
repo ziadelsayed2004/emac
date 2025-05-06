@@ -129,8 +129,8 @@ document.querySelectorAll('.service-item').forEach(item => {
     item.addEventListener('mouseleave', () => {
       if (tapIcon) tapIcon.style.display = 'block';
     });
-  });
-  
+});
+
   
 const swiper = new Swiper('.swiper', {
     loop: true,
@@ -152,25 +152,20 @@ const swiper = new Swiper('.swiper', {
 
 const container = document.getElementById('sliderContainer');
 const track = document.getElementById('sliderTrack');
-
 let isDown = false;
 let startX;
 let scrollLeft;
 let scrollSpeed = 2;
 let isScrolling = true;
-
 const isRTL = getComputedStyle(container).direction === 'rtl';
-
 container.addEventListener('mousedown', (e) => {
     isDown = true;
     startX = e.pageX - container.offsetLeft;
     scrollLeft = container.scrollLeft;
     scrollSpeed = 1.5;
 });
-
 container.addEventListener('mouseleave', () => isDown = false);
 container.addEventListener('mouseup', () => isDown = false);
-
 container.addEventListener('mousemove', (e) => {
     if (!isDown) return;
     e.preventDefault();
@@ -178,14 +173,12 @@ container.addEventListener('mousemove', (e) => {
     const walk = (x - startX) * 1.5;
     container.scrollLeft = scrollLeft - walk;
 });
-
 container.addEventListener('touchstart', (e) => {
     isDown = true;
     startX = e.touches[0].pageX - container.offsetLeft;
     scrollLeft = container.scrollLeft;
     scrollSpeed = 1.5;
 });
-
 container.addEventListener('touchend', () => isDown = false);
 container.addEventListener('touchmove', (e) => {
     if (!isDown) return;
@@ -193,8 +186,6 @@ container.addEventListener('touchmove', (e) => {
     const walk = (x - startX) * 1.5;
     container.scrollLeft = scrollLeft - walk;
 });
-
-// Autoscroll
 let autoScroll;
 function startAutoScroll() {
     autoScroll = setInterval(() => {
@@ -210,15 +201,16 @@ function startAutoScroll() {
         }
     }, 16);
 }
-
 function stopAutoScroll() {
     clearInterval(autoScroll);
     isScrolling = false;
+    scrollSpeed = 1;
+    startAutoScroll();
+    isScrolling = true;
 }
-
 container.addEventListener('mouseenter', () => {
     stopAutoScroll();
-    scrollSpeed = 1.5;
+    scrollSpeed = 1;
 });
 container.addEventListener('mouseleave', () => {
     isScrolling = true;
@@ -227,23 +219,11 @@ container.addEventListener('mouseleave', () => {
 });
 container.addEventListener('touchstart', () => {
     stopAutoScroll();
-    scrollSpeed = 1.5;
+    scrollSpeed = 1;
 });
 container.addEventListener('touchend', () => {
     isScrolling = true;
     startAutoScroll();
     scrollSpeed = 2;
 });
-
 startAutoScroll();
-
-
-window.addEventListener("scroll", function () {
-    const navbar = document.getElementById("navbar");
-    if (window.scrollY > 100) {
-      navbar.classList.add("nav-sticky");
-    } else {
-      navbar.classList.remove("nav-sticky");
-    }
-  });
-  
