@@ -879,8 +879,8 @@ a:focus {
 .service .service-text h3 {
     margin: 0;
     padding: 0 15px 0 25px;
-    width: calc(100% - 60px);
-    font-size: 20px;
+    width: calc(100% - 50px);
+    font-size: 17.5px;
     font-weight: 700;
     color: #D72428;
     text-align: left;
