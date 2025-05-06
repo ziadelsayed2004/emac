@@ -52,6 +52,12 @@ const resources = {
         service_p6: "The field of construction and concrete and steel structures is one of the huge fields in Emac Contracting Company, where the company has gradually and professionally expanded in this field and gained great confidence and an honorable reputation in the labor market. The company has become one of the prominent companies in the industrial field for the concrete and steel construction of facilities, as well as in the residential and other fields.",
         service_h7: "Communication networks",
         service_p7: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\n1. Network Systems\n\n2. Security System\n\n3. Surveillance Cameras",
+        office_contact: "Office Contact",
+        location_p: "10th Of Ramadan City, Alordoniya, ELSafaa Mall, behind Ceramic Atrees.",
+        useful_pages: "Useful Pages",
+        policy: "Policy",
+        help: "Help ?",
+        fqas: "FQAs",
         }
     },
     ar: {
@@ -107,6 +113,12 @@ const resources = {
         service_p6: "The field of construction and concrete and steel structures is one of the huge fields in Emac Contracting Company, where the company has gradually and professionally expanded in this field and gained great confidence and an honorable reputation in the labor market. The company has become one of the prominent companies in the industrial field for the concrete and steel construction of facilities, as well as in the residential and other fields.",
         service_h7: "Communication networks",
         service_p7: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\n1. Network Systems\n\n2. Security System\n\n3. Surveillance Cameras",
+        office_contact: "Office Contact",
+        location_p: "10th Of Ramadan City, Alordoniya, ELSafaa Mall, behind Ceramic Atrees.",
+        useful_pages: "Useful Pages",
+        policy: "Policy",
+        help: "Help ?",
+        fqas: "FQAs",    
         }
     }
 };
