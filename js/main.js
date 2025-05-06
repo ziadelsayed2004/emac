@@ -131,24 +131,69 @@ document.querySelectorAll('.service-item').forEach(item => {
     });
 });
 
-  
-const swiper = new Swiper('.swiper', {
-    loop: true,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    effect: 'cube',
-    speed: 500,
-});
+{
+    const slidesWrapper = document.querySelector('.slides-wrapper');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    const isRTL = document.body.classList.contains('rtl');
+    
+    let currentIndex = 0;
+    let interval;
+    
+    function showSlide(index) {
+      if (index >= slides.length) index = 0;  
+      if (index < 0) index = slides.length - 1; 
+      currentIndex = index;
+      const offset = -index * 100; 
+      slidesWrapper.style.transform = `translateX(${isRTL ? -offset : offset}%)`;
+    }
+    
+    function nextSlide() {
+        if(currentIndex === 2) {  
+            showSlide(0); 
+          } else {
+            showSlide(currentIndex + 1); 
+          }
+    }
+    
+    function prevSlide() {
+        if(currentIndex === 0) { 
+            showSlide(2);
+          } else {
+            showSlide(currentIndex - 1);
+          }    
+    }
+    
+    function startAutoplay() {
+      interval = setInterval(() => {
+        if(currentIndex === 2) {  
+          showSlide(0);
+        } else {
+          showSlide(currentIndex + 1); 
+        }
+      }, 2500); 
+    }
+    
+    function stopAutoplay() {
+      clearInterval(interval);
+    }
+    
+    nextBtn.addEventListener('click', () => {
+      stopAutoplay();  
+      nextSlide();     
+      startAutoplay(); 
+    });
+    
+    prevBtn.addEventListener('click', () => {
+      stopAutoplay();  
+      prevSlide();    
+      startAutoplay();
+    });
+    
+    showSlide(0);       
+    startAutoplay();    
+}
 
 {
 const container = document.getElementById('sliderContainer');

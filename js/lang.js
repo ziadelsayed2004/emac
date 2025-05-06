@@ -155,6 +155,15 @@ i18next.init({
 function changeLanguage() {
   currentLang = currentLang === 'en' ? 'ar' : 'en';
   localStorage.setItem('lang', currentLang);
+
+  if(currentLang === 'en') {
+    document.body.classList.remove('rtl');
+    document.body.classList.add('ltr');
+  } else {
+    document.body.classList.remove('ltr');
+    document.body.classList.add('rtl');
+  }
+
   i18next.changeLanguage(currentLang, () => {
     updateContent();
     updateToggleButton();
