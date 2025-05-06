@@ -180,6 +180,8 @@ let scrollLeft;
 let scrollSpeed = 2;
 let isScrolling = true;
 
+const isRTL = getComputedStyle(container).direction === 'rtl';
+
 container.addEventListener('mousedown', (e) => {
     isDown = true;
     startX = e.pageX - container.offsetLeft;
@@ -213,13 +215,18 @@ container.addEventListener('touchmove', (e) => {
     container.scrollLeft = scrollLeft - walk;
 });
 
+// Autoscroll
 let autoScroll;
 function startAutoScroll() {
     autoScroll = setInterval(() => {
         if (isScrolling) {
-            container.scrollLeft += scrollSpeed;
-            if (container.scrollLeft >= track.scrollWidth / 2) {
+            container.scrollLeft += isRTL ? -scrollSpeed : scrollSpeed;
+            const maxScroll = track.scrollWidth / 2;
+
+            if (!isRTL && container.scrollLeft >= maxScroll) {
                 container.scrollLeft = 0;
+            } else if (isRTL && container.scrollLeft <= 0) {
+                container.scrollLeft = maxScroll;
             }
         }
     }, 16);
@@ -250,4 +257,3 @@ container.addEventListener('touchend', () => {
 });
 
 startAutoScroll();
-

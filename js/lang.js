@@ -65,6 +65,8 @@ const resources = {
         send_msg: "Send Message",
         for_any_query:"For Any Query",
         get_in_touch: "Get In Touch",
+        partner:"Our Partners",
+        partner_p:"Together Towards Greater Goals",
         }
     },
     ar: {
@@ -133,6 +135,8 @@ const resources = {
         send_msg: "Send Message",
         for_any_query:"For Any Query",
         get_in_touch: "Get In Touch",
+        partner:"Our Partners",
+        partner_p:"Together Towards Greater Goals",
         }
     }
 };
