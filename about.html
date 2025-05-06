@@ -15,6 +15,8 @@
 
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
         <link href="lib/flaticon/font/flaticon.css" rel="stylesheet"> 
         <link href="lib/animate/animate.min.css" rel="stylesheet">
@@ -145,7 +147,16 @@
                     <div class="row align-items-center">
                         <div class="col-lg-5 col-md-6">
                             <div class="about-img">
-                                <img src="img/about.jpg" alt="Image">
+                                <div class="swiper">
+                                    <div class="swiper-wrapper">
+                                      <div class="swiper-slide"><img src="img/team-1.jpg" alt="Certificate 1"></div>
+                                      <div class="swiper-slide"><img src="img/team-2.jpg" alt="Certificate 2"></div>
+                                      <div class="swiper-slide"><img src="img/team-3.jpg" alt="Certificate 3"></div>
+                                    </div>
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-pagination"></div>
+                                </div>                            
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-6">
@@ -162,7 +173,55 @@
                 </div>
             </div>
             <!-- About End -->
+
             
+            <!-- Parteners Start -->
+            <div class="partner wow fadeIn" data-wow-delay="0.1s">
+                <div class="section-header text-center">
+                  <p data-i18n="partner_p"></p>
+                  <h2 data-i18n="partner"></h2>
+                </div>
+              
+                <div class="slider-container" id="sliderContainer">
+                    <div class="slider-track" id="sliderTrack">
+                        <div class="slide"><img src="img/partners/p1.jpg" alt="Partner 1" /></div>
+                        <div class="slide"><img src="img/partners/p2.jpg" alt="Partner 2" /></div>
+                        <div class="slide"><img src="img/partners/p3.jpg" alt="Partner 3" /></div>
+                        <div class="slide"><img src="img/partners/p4.jpg" alt="Partner 4" /></div>
+                        <div class="slide"><img src="img/partners/p5.jpg" alt="Partner 5" /></div>
+                        <div class="slide"><img src="img/partners/p6.jpg" alt="Partner 6" /></div>
+                        <div class="slide"><img src="img/partners/p7.jpg" alt="Partner 7" /></div>
+                        <div class="slide"><img src="img/partners/p8.jpg" alt="Partner 8" /></div>
+                        <div class="slide"><img src="img/partners/p9.jpg" alt="Partner 9" /></div>
+                        <div class="slide"><img src="img/partners/p10.jpg" alt="Partner 10" /></div>
+                        <div class="slide"><img src="img/partners/p11.jpg" alt="Partner 11" /></div>
+                        <div class="slide"><img src="img/partners/p12.jpg" alt="Partner 12" /></div>
+                        <div class="slide"><img src="img/partners/p13.jpg" alt="Partner 13" /></div>
+                        <div class="slide"><img src="img/partners/p14.jpg" alt="Partner 14" /></div>
+                        <div class="slide"><img src="img/partners/p15.jpg" alt="Partner 15" /></div>
+                        <div class="slide"><img src="img/partners/p16.jpg" alt="Partner 16" /></div>
+                        <div class="slide"><img src="img/partners/p1.jpg" alt="Partner 1" /></div>
+                        <div class="slide"><img src="img/partners/p2.jpg" alt="Partner 2" /></div>
+                        <div class="slide"><img src="img/partners/p3.jpg" alt="Partner 3" /></div>
+                        <div class="slide"><img src="img/partners/p4.jpg" alt="Partner 4" /></div>
+                        <div class="slide"><img src="img/partners/p5.jpg" alt="Partner 5" /></div>
+                        <div class="slide"><img src="img/partners/p6.jpg" alt="Partner 6" /></div>
+                        <div class="slide"><img src="img/partners/p7.jpg" alt="Partner 7" /></div>
+                        <div class="slide"><img src="img/partners/p8.jpg" alt="Partner 8" /></div>
+                        <div class="slide"><img src="img/partners/p9.jpg" alt="Partner 9" /></div>
+                        <div class="slide"><img src="img/partners/p10.jpg" alt="Partner 10" /></div>
+                        <div class="slide"><img src="img/partners/p11.jpg" alt="Partner 11" /></div>
+                        <div class="slide"><img src="img/partners/p12.jpg" alt="Partner 12" /></div>
+                        <div class="slide"><img src="img/partners/p13.jpg" alt="Partner 13" /></div>
+                        <div class="slide"><img src="img/partners/p14.jpg" alt="Partner 14" /></div>
+                        <div class="slide"><img src="img/partners/p15.jpg" alt="Partner 15" /></div>
+                        <div class="slide"><img src="img/partners/p16.jpg" alt="Partner 16" /></div>                                         
+                    </div>
+                </div>
+                
+            </div>
+            <!-- Parteners End -->
+
             
             <!-- Fact Start -->
             <div class="fact">
@@ -427,6 +486,7 @@
         <script src="lib/counterup/counterup.min.js"></script>
         <script src="lib/slick/slick.min.js"></script>
         <script src="https://unpkg.com/i18next@latest/i18next.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
