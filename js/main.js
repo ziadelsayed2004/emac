@@ -150,6 +150,7 @@ const swiper = new Swiper('.swiper', {
     speed: 500,
 });
 
+{
 const container = document.getElementById('sliderContainer');
 const track = document.getElementById('sliderTrack');
 let isDown = false;
@@ -227,3 +228,4 @@ container.addEventListener('touchend', () => {
     scrollSpeed = 2;
 });
 startAutoScroll();
+}
