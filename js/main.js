@@ -153,3 +153,100 @@ document.querySelectorAll('.service-item').forEach(item => {
   });
   
   
+const swiper = new Swiper('.swiper', {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    effect: 'fade',
+    speed: 500,
+});
+
+const container = document.getElementById('sliderContainer');
+const track = document.getElementById('sliderTrack');
+
+let isDown = false;
+let startX;
+let scrollLeft;
+let scrollSpeed = 2;
+let isScrolling = true;
+
+container.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - container.offsetLeft;
+    scrollLeft = container.scrollLeft;
+    scrollSpeed = 1;
+});
+
+container.addEventListener('mouseleave', () => isDown = false);
+container.addEventListener('mouseup', () => isDown = false);
+
+container.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - container.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    container.scrollLeft = scrollLeft - walk;
+});
+
+container.addEventListener('touchstart', (e) => {
+    isDown = true;
+    startX = e.touches[0].pageX - container.offsetLeft;
+    scrollLeft = container.scrollLeft;
+    scrollSpeed = 1;
+});
+
+container.addEventListener('touchend', () => isDown = false);
+container.addEventListener('touchmove', (e) => {
+    if (!isDown) return;
+    const x = e.touches[0].pageX - container.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    container.scrollLeft = scrollLeft - walk;
+});
+
+let autoScroll;
+function startAutoScroll() {
+    autoScroll = setInterval(() => {
+        if (isScrolling) {
+            container.scrollLeft += scrollSpeed;
+            if (container.scrollLeft + container.offsetWidth >= track.scrollWidth) {
+                container.scrollLeft = 0;
+            }
+        }
+    }, 16);
+}
+
+function stopAutoScroll() {
+    clearInterval(autoScroll);
+    isScrolling = false;
+}
+
+container.addEventListener('mouseenter', () => {
+    stopAutoScroll();
+    scrollSpeed = 1.5;
+});
+container.addEventListener('mouseleave', () => {
+    isScrolling = true;
+    startAutoScroll();
+    scrollSpeed = 2;
+});
+container.addEventListener('touchstart', () => {
+    stopAutoScroll();
+    scrollSpeed = 1.5;
+});
+container.addEventListener('touchend', () => {
+    isScrolling = true;
+    startAutoScroll();
+    scrollSpeed = 2;
+});
+
+startAutoScroll();

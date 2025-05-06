@@ -709,10 +709,130 @@ a:focus {
     background: #0D0D0D;
 }
 
+.swiper {
+    width: 75%;
+    max-width: 450px;
+    height: auto;
+    padding: auto;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #0D0D0D;
+    transition: ease-in-out .5s;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    color: #D72428;
+}
+
+.swiper-pagination-bullet {
+    background: #0D0D0D;
+    border: 1px solid #D72428;
+    transition: ease-in-out 0.5s;
+}
+
+.swiper-pagination-bullet-active, 
+.swiper-pagination-bullet:hover {
+    border: 1px solid #D72428;
+    background: #D72428;
+    opacity: 1;
+}
+
 @media (max-width: 767.98px) {
     .about .about-img {
         margin-bottom: 30px;
         height: auto;
+    }
+}
+
+
+
+/*******************************/
+/******* PARTNERS CSS *******/
+/*******************************/
+.partner .slider-container {
+    overflow-x: hidden;
+    width: 90%;
+    margin: 30px auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px -5px rgba(0,0,0,0.1);
+    background: #fff;
+    position: relative;
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.partner .slider-track {
+    display: inline-flex;
+    gap: 0px;
+    padding: 20px;
+    min-width: max-content;
+    animation: autoScroll 40s linear infinite;
+}
+
+.partner .slide {
+    flex: 0 0 auto;
+    width: 250px;
+    height: 100px;
+}
+
+.partner .slide img {
+    width: 100%;
+    height: 100%;
+    min-width: 150px;
+    max-width: 150px;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+@keyframes autoScroll {
+    0% {
+        transform: translateX(0);
+    }
+    10% {
+        transform: translateX(-1.25%);
+    }
+    20% {
+        transform: translateX(-2.5%);
+    }
+    30% {
+        transform: translateX(-3.75%);
+    }
+    40% {
+        transform: translateX(-5%);
+    }
+    50% {
+        transform: translateX(-6.25%);
+    }
+    60%{
+        transform: translateX(-7.5%);
+    }
+    70%{
+        transform: translateX(-8.75%);
+    }
+    80%{
+        transform: translateX(-10%);
+    }
+    90%{
+        transform: translateX(-11.25%);
+    }
+    100% {
+        transform: translateX(-12.5%);
     }
 }
 
@@ -835,7 +955,6 @@ a:focus {
     50%  { transform: translateY(-8px); }
     100% { transform: translateY(0); }
   }
-  
   
 
 .service .service-overlay {
@@ -1037,108 +1156,6 @@ a:focus {
 
 
 /*******************************/
-/*********** Team CSS **********/
-/*******************************/
-.team {
-    position: relative;
-    width: 100%;
-    padding: 45px 0 15px 0;
-}
-
-.team .team-item {
-    position: relative;
-    margin-bottom: 30px;
-    overflow: hidden;
-    border-radius: 25px;
-}
-
-.team .team-img {
-    position: relative;
-}
-
-.team .team-img img {
-    width: 100%;
-    border-radius: 25px 25px 0 0;
-}
-
-.team .team-text {
-    position: relative;
-    padding: 25px 15px;
-    text-align: center;
-    background: #0D0D0D;
-    transition: .5s;
-    border-radius: 0 0 25px 25px;
-}
-
-.team .team-text h2 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #D72428;
-    transition: .5s;
-}
-
-.team .team-text p {
-    margin: 0;
-    color: #ffffff;
-}
-
-.team .team-item:hover .team-text {
-    background: #D72428;
-}
-
-.team .team-item:hover .team-text h2 {
-    color: #0D0D0D;
-    letter-spacing: 1px;
-}
-
-.team .team-social {
-    position: absolute;
-    width: 100px;
-    top: 0;
-    left: -50px;
-    display: flex;
-    flex-direction: column;
-    font-size: 0;
-}
-
-.team .team-social a {
-    position: relative;
-    left: 0;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    color: #ffffff;
-}
-
-.team .team-item:hover .team-social a:first-child {
-    background: #00acee;
-    left: 50px;
-    transition: .3s 0s;
-}
-
-.team .team-item:hover .team-social a:nth-child(2) {
-    background: #3b5998;
-    left: 50px;
-    transition: .3s .1s;
-}
-
-.team .team-item:hover .team-social a:nth-child(3) {
-    background: #0e76a8;
-    left: 50px;
-    transition: .3s .2s;
-}
-
-.team .team-item:hover .team-social a:nth-child(4) {
-    background: #3f729b;
-    left: 50px;
-    transition: .3s .3s;
-}
-
-
-/*******************************/
 /*********** FAQs CSS **********/
 /*******************************/
 .faqs {
@@ -1245,6 +1262,9 @@ a:focus {
     border-top: none;
     border-radius: 0 0 25px 25px;
 }
+
+
+
 
 
 /*******************************/
