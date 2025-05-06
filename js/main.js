@@ -21,7 +21,7 @@
     
     // Sticky Navbar
     $(window).scroll(function () {
-        if ($(this).scrollTop() > 90) {
+        if ($(this).scrollTop() > 120) {
             $('.nav-bar').addClass('nav-sticky');
             $('.carousel, .page-header').css("margin-top", "73px");
         } else {
@@ -74,27 +74,6 @@
     });
 
 
-    // Testimonial Slider
-    $('.testimonial-slider').slick({
-        infinite: true,
-        autoplay: true,
-        arrows: false,
-        dots: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        asNavFor: '.testimonial-slider-nav'
-    });
-    $('.testimonial-slider-nav').slick({
-        arrows: false,
-        dots: false,
-        focusOnSelect: true,
-        centerMode: true,
-        centerPadding: '22px',
-        slidesToShow: 3,
-        asNavFor: '.testimonial-slider'
-    });
-    $('.testimonial .slider-nav').css({"position": "relative", "height": "160px"});
-    
     
     // Blogs carousel
     $(".related-slider").owlCarousel({
@@ -257,3 +236,14 @@ container.addEventListener('touchend', () => {
 });
 
 startAutoScroll();
+
+
+window.addEventListener("scroll", function () {
+    const navbar = document.getElementById("navbar");
+    if (window.scrollY > 100) {
+      navbar.classList.add("nav-sticky");
+    } else {
+      navbar.classList.remove("nav-sticky");
+    }
+  });
+  
