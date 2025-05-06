@@ -132,8 +132,8 @@ document.querySelectorAll('.service-item').forEach(item => {
 });
 
 {
-    const slidesWrapper = document.querySelector('.slides-wrapper');
-    const slides = document.querySelectorAll('.slide');
+    const slidesWrapper = document.querySelector('.about-img .slides-wrapper');
+    const slides = document.querySelectorAll('.about-img .slide');
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
     const isRTL = document.body.classList.contains('rtl');
