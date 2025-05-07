@@ -1091,11 +1091,11 @@ body.rtl .about-img .next {
 
 @media (max-width: 767.98px) {
     .video {
-        min-height: 350px !important;
+        min-height: 350px;
         background-attachment: scroll;
     }
     .embed-responsive{
-        height: 350px !important;
+        height: 350px;
     }
 }
 
