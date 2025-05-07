@@ -1016,6 +1016,10 @@ body.rtl .about-img .next {
     background-size: cover;
 }
 
+.embed-responsive{
+    height: 500px;
+}
+
 .video .btn-play {
     position: absolute;
     z-index: 1;
@@ -1083,10 +1087,6 @@ body.rtl .about-img .next {
     border-left: 32px solid #0D0D0D;
     border-top: 22px solid transparent;
     border-bottom: 22px solid transparent;
-}
-
-.embed-responsive{
-    height: 500px;
 }
 
 @media (max-width: 767.98px) {
