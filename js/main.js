@@ -277,31 +277,45 @@ document.querySelectorAll('.service-item').forEach(item => {
 }
     
 { //TOGGLE ?
-document.addEventListener('DOMContentLoaded', function () {
-    const buttons = document.querySelectorAll('.toggle-overlay');
-
-    buttons.forEach(button => {
-        button.addEventListener('click', function () {
-            const serviceItem = this.closest('.service-item');
-            const overlay = serviceItem.querySelector('.service-overlay');
-
-            const isActive = overlay.classList.contains('active');
-
-            document.querySelectorAll('.service-overlay').forEach(o => {
-                o.classList.remove('active');
+    document.addEventListener('DOMContentLoaded', function () {
+        const buttons = document.querySelectorAll('.toggle-overlay');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', function () {
+                let container, overlaySelector;
+    
+                if (this.closest('.service-item')) {
+                    container = this.closest('.service-item');
+                    overlaySelector = '.service-overlay';
+                } else if (this.closest('.portfolio-item')) {
+                    container = this.closest('.portfolio-item');
+                    overlaySelector = '.portfolio-overlay';
+                } else {
+                    return;
+                }
+    
+                const overlay = container.querySelector(overlaySelector);
+                const isActive = overlay.classList.contains('active');
+    
+                document.querySelectorAll(overlaySelector).forEach(o => {
+                    o.classList.remove('active');
+                });
+    
+                document.querySelectorAll('.toggle-overlay i').forEach(icon => {
+                    icon.className = 'fas fa-info';
+                });
+    
+                if (!isActive) {
+                    overlay.classList.add('active');
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        icon.className = 'fa-solid fa-circle-xmark';
+                    }
+                }
             });
-
-            document.querySelectorAll('.toggle-overlay').forEach(b => {
-                b.textContent = '?';
-            });
-
-            if (!isActive) {
-                overlay.classList.add('active');
-                this.textContent = '×';
-            }
         });
     });
-});
+    
 }
 
 { // VIDEO

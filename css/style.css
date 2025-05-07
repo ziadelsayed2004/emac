@@ -987,13 +987,14 @@ body.rtl .about-img .next {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 40px;
-    line-height: 40px;
+    font-size: 20px;
+    line-height: 20px;
     font-weight: 250;
     color: #0D0D0D;
     background: #D72428;
     border-radius: 25px;
     transition: .3s;
+    text-align: center;
 }
 
 .service .service-item a.btn:hover {
@@ -1260,22 +1261,23 @@ body.rtl .about-img .next {
 }
 
 .blog .blog-title a.btn {
-    width: 45px;
-    height: 45px;
-    padding: 1.75px 0 0 1.75px;
+    width: 40px;
+    height: 40px;
+    margin-right: 7.5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 45px;
-    line-height: 45px;
-    font-weight: 100;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 250;
     color: #0D0D0D;
     background: #D72428;
     border-radius: 25px;
     transition: .3s;
+    text-align: center;
 }
 
-.blog .blog-item:hover a.btn {
+.blog .blog-item a.btn:hover {
     color: #ffffff;
 }
 
@@ -1566,10 +1568,6 @@ body.rtl .about-img .next {
     border-bottom: solid 0px #0D0D0D !important;
 }
 
-.portfolio .portfolio-item:hover img {
-    transform: scale(1.1);
-}
-
 .portfolio .portfolio-overlay {
     position: absolute;
     width: 100%;
@@ -1586,7 +1584,7 @@ body.rtl .about-img .next {
     opacity: 0;
 }
 
-.portfolio .portfolio-warp:hover .portfolio-overlay {
+.portfolio .portfolio-warp .portfolio-overlay.active {
     opacity: 1;
 }
 
@@ -1620,22 +1618,23 @@ body.rtl .about-img .next {
 }
 
 .portfolio .portfolio-warp a.btn {
-    width: 45px;
-    height: 45px;
-    padding: 1.75px 0 0 1.75px;
+    width: 40px;
+    height: 40px;
+    margin-right: 7.5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 45px;
-    line-height: 45px;
-    font-weight: 100;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 250;
     color: #0D0D0D;
-    background: #ffffff;
+    background: #D72428;
     border-radius: 25px;
     transition: .3s;
+    text-align: center;
 }
 
-.portfolio .portfolio-warp:hover a.btn {
+.portfolio .portfolio-warp a.btn:hover {
     color: #ffffff;
     background: #D72428;
 }
