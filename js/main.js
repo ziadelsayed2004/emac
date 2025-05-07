@@ -276,7 +276,7 @@ document.querySelectorAll('.service-item').forEach(item => {
     startAutoScroll();
 }
     
-
+{ //TOGGLE ?
 document.addEventListener('DOMContentLoaded', function () {
     const buttons = document.querySelectorAll('.toggle-overlay');
 
@@ -302,3 +302,78 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+}
+
+{ // VIDEO
+    let player;
+    let lastTime = 0;
+    const btnPlay = document.querySelector(".btn-play");
+    const videoWrapper = document.querySelector(".embed-responsive");
+
+    let userIsSeeking = false;
+
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('yt-player', {
+            height: '360',
+            width: '640',
+            videoId: '_BWlj35lCAM',
+            playerVars: {
+                autoplay: 1,
+                modestbranding: 1,
+                rel: 0,
+                controls: 1,
+                showinfo: 0,
+                fs: 0,
+                iv_load_policy: 3,
+                disablekb: 0
+            },
+            events: {
+                onReady: function (event) {
+                    event.target.playVideo();
+                },
+                onStateChange: function (event) {
+                    if (event.data === YT.PlayerState.ENDED) {
+                        videoWrapper.style.display = "none";
+                        btnPlay.style.display = "inline-block";
+                    }
+                }
+            }
+        });
+    }
+
+    // Load YouTube API script
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+
+    // Play Button
+    btnPlay.addEventListener("click", function () {
+        videoWrapper.style.display = "block";
+        btnPlay.style.display = "none";
+
+        if (player && player.playVideo) {
+            player.seekTo(lastTime);
+            player.playVideo();
+        }
+    });
+
+    // Detect Pause by user (but ignore if it's from seeking)
+    setInterval(() => {
+        if (player && player.getPlayerState) {
+            const state = player.getPlayerState();
+            if (state === YT.PlayerState.PAUSED && !userIsSeeking) {
+                lastTime = player.getCurrentTime();
+                videoWrapper.style.display = "none";
+                btnPlay.style.display = "inline-block";
+            }
+        }
+    }, 500);
+
+    // Listen for seeking (rough detection using mouse down on player)
+    document.addEventListener('mousedown', (e) => {
+        if (e.target.closest('#yt-player')) {
+            userIsSeeking = true;
+            setTimeout(() => userIsSeeking = false, 1000); // short buffer time to prevent hiding
+        }
+    });
+}
