@@ -287,17 +287,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const isActive = overlay.classList.contains('active');
 
-            // قفل كل الـ overlays التانية
             document.querySelectorAll('.service-overlay').forEach(o => {
                 o.classList.remove('active');
             });
 
-            // رجّع كل الأزرار إلى ?
             document.querySelectorAll('.toggle-overlay').forEach(b => {
                 b.textContent = '?';
             });
 
-            // فعل أو الغي overlay الحالي
             if (!isActive) {
                 overlay.classList.add('active');
                 this.textContent = '×';
