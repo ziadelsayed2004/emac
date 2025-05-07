@@ -1562,6 +1562,8 @@ body.rtl .about-img .next {
     width: 100%;
     border-radius: 25px 25px 0 0;
     transition: .3s;
+    border: solid 2.5px #0D0D0D;
+    border-bottom: solid 0px #0D0D0D !important;
 }
 
 .portfolio .portfolio-item:hover img {
