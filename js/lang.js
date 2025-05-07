@@ -152,26 +152,33 @@ function changeLanguage() {
   currentLang = currentLang === 'en' ? 'ar' : 'en';
   localStorage.setItem('lang', currentLang);
 
-  const prevBtn = document.querySelector(".nav.prev");
-  const nextBtn = document.querySelector(".nav.next");
-
   if(currentLang === 'en') {
     document.body.classList.remove('rtl');
     document.body.classList.add('ltr');
-    prevBtn.innerHTML = "&#10094;";
-    nextBtn.innerHTML = "&#10095;"; 
   } else {
     document.body.classList.remove('ltr');
     document.body.classList.add('rtl');
-    prevBtn.innerHTML = "&#10095;";
-    nextBtn.innerHTML = "&#10094;"; 
   }
 
   i18next.changeLanguage(currentLang, () => {
     updateContent();
     updateToggleButton();
     updateDirection();
+    changeLanguageBtn();
   });
+}
+
+function changeLanguageBtn(){
+const prevBtn = document.querySelector(".nav.prev");
+const nextBtn = document.querySelector(".nav.next");
+
+  if(currentLang === 'en') {
+    prevBtn.innerHTML = "&#10094;";
+    nextBtn.innerHTML = "&#10095;"; 
+  } else {
+    prevBtn.innerHTML = "&#10095;";
+    nextBtn.innerHTML = "&#10094;"; 
+  }
 }
 
 function updateContent() {
