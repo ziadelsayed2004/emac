@@ -198,81 +198,81 @@ document.querySelectorAll('.service-item').forEach(item => {
 }
 
 { // PARTNERS SLIDER 
-const container = document.getElementById('sliderContainer');
-const track = document.getElementById('sliderTrack');
-let isDown = false;
-let startX;
-let scrollLeft;
-let scrollSpeed = 2;
-let isScrolling = true;
-const isRTL = getComputedStyle(container).direction === 'rtl';
-container.addEventListener('mousedown', (e) => {
-    isDown = true;
-    startX = e.pageX - container.offsetLeft;
-    scrollLeft = container.scrollLeft;
-    scrollSpeed = 1.5;
-});
-container.addEventListener('mouseleave', () => isDown = false);
-container.addEventListener('mouseup', () => isDown = false);
-container.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - container.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    container.scrollLeft = scrollLeft - walk;
-});
-container.addEventListener('touchstart', (e) => {
-    isDown = true;
-    startX = e.touches[0].pageX - container.offsetLeft;
-    scrollLeft = container.scrollLeft;
-    scrollSpeed = 1.5;
-});
-container.addEventListener('touchend', () => isDown = false);
-container.addEventListener('touchmove', (e) => {
-    if (!isDown) return;
-    const x = e.touches[0].pageX - container.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    container.scrollLeft = scrollLeft - walk;
-});
-let autoScroll;
-function startAutoScroll() {
-    autoScroll = setInterval(() => {
-        if (isScrolling) {
+    const container = document.getElementById('sliderContainer');
+    const track = document.getElementById('sliderTrack');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    let scrollSpeed = 2;
+    const isRTL = getComputedStyle(container).direction === 'rtl';
+    
+    let autoScroll;
+    
+    function startAutoScroll() {
+        if (autoScroll) return;
+        autoScroll = setInterval(() => {
             container.scrollLeft += isRTL ? -scrollSpeed : scrollSpeed;
             const maxScroll = track.scrollWidth / 2;
-
+    
             if (!isRTL && container.scrollLeft >= maxScroll) {
                 container.scrollLeft = 0;
             } else if (isRTL && container.scrollLeft <= 0) {
                 container.scrollLeft = maxScroll;
             }
-        }
-    }, 16);
-}
-function stopAutoScroll() {
-    clearInterval(autoScroll);
-    isScrolling = false;
-    scrollSpeed = 1;
+        }, 16);
+    }
+    
+    function stopAutoScroll() {
+        clearInterval(autoScroll);
+        autoScroll = null;
+    }
+    
+    container.addEventListener('mousedown', (e) => {
+        isDown = true;
+        scrollSpeed = 1.5;
+        startX = e.pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
+    });
+    container.addEventListener('mouseup', () => {
+        isDown = false;
+        scrollSpeed = 2;
+    });
+    container.addEventListener('mouseleave', () => {
+        isDown = false;
+        scrollSpeed = 2;
+    });
+    container.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        container.scrollLeft = scrollLeft - walk;
+    });
+    
+    container.addEventListener('touchstart', (e) => {
+        isDown = true;
+        scrollSpeed = 1.5;
+        startX = e.touches[0].pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
+    });
+    container.addEventListener('touchend', () => {
+        isDown = false;
+        scrollSpeed = 2;
+    });
+    container.addEventListener('touchmove', (e) => {
+        if (!isDown) return;
+        const x = e.touches[0].pageX - container.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        container.scrollLeft = scrollLeft - walk;
+    });
+    
+    container.addEventListener('mouseenter', () => {
+        scrollSpeed = 1;
+    });
+    container.addEventListener('mouseleave', () => {
+        scrollSpeed = 2;
+    });
+    
     startAutoScroll();
-    isScrolling = true;
 }
-container.addEventListener('mouseenter', () => {
-    stopAutoScroll();
-    scrollSpeed = 1;
-});
-container.addEventListener('mouseleave', () => {
-    isScrolling = true;
-    startAutoScroll();
-    scrollSpeed = 2;
-});
-container.addEventListener('touchstart', () => {
-    stopAutoScroll();
-    scrollSpeed = 1;
-});
-container.addEventListener('touchend', () => {
-    isScrolling = true;
-    startAutoScroll();
-    scrollSpeed = 2;
-});
-startAutoScroll();
-}
+    
