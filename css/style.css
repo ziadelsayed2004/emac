@@ -764,12 +764,12 @@ body.rtl .about-img .slides-wrapper {
   
 body.rtl .about-img .prev {
     left: 10px;
-    left: auto;
+    right: auto;
 }
   
 body.rtl .about-img .next {
-    left: 10px;
-    right: auto;
+    right: 10px;
+    left: auto;
 }
   
 

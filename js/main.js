@@ -114,7 +114,7 @@
     
 })(jQuery);
 
-
+{ // TAP HOVER
 document.querySelectorAll('.service-item').forEach(item => {
     const tapIcon = item.querySelector('.tap-indicator');
   
@@ -130,8 +130,9 @@ document.querySelectorAll('.service-item').forEach(item => {
       if (tapIcon) tapIcon.style.display = 'block';
     });
 });
+}
 
-{
+{ // ISO SLIDER
     const slidesWrapper = document.querySelector('.about-img .slides-wrapper');
     const slides = document.querySelectorAll('.about-img .slide');
     const prevBtn = document.querySelector('.prev');
@@ -192,10 +193,11 @@ document.querySelectorAll('.service-item').forEach(item => {
     });
     
     showSlide(0);       
-    startAutoplay();    
+    startAutoplay();  
+
 }
 
-{
+{ // PARTNERS SLIDER 
 const container = document.getElementById('sliderContainer');
 const track = document.getElementById('sliderTrack');
 let isDown = false;
