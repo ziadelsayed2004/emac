@@ -276,3 +276,32 @@ document.querySelectorAll('.service-item').forEach(item => {
     startAutoScroll();
 }
     
+
+document.addEventListener('DOMContentLoaded', function () {
+    const buttons = document.querySelectorAll('.toggle-overlay');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function () {
+            const serviceItem = this.closest('.service-item');
+            const overlay = serviceItem.querySelector('.service-overlay');
+
+            const isActive = overlay.classList.contains('active');
+
+            // قفل كل الـ overlays التانية
+            document.querySelectorAll('.service-overlay').forEach(o => {
+                o.classList.remove('active');
+            });
+
+            // رجّع كل الأزرار إلى ?
+            document.querySelectorAll('.toggle-overlay').forEach(b => {
+                b.textContent = '?';
+            });
+
+            // فعل أو الغي overlay الحالي
+            if (!isActive) {
+                overlay.classList.add('active');
+                this.textContent = '×';
+            }
+        });
+    });
+});
