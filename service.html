@@ -564,6 +564,31 @@
             if (tapIcon) tapIcon.style.display = 'block';
             });
         });
+
+            document.addEventListener('DOMContentLoaded', function () {
+            const buttons = document.querySelectorAll('.toggle-overlay');
+            buttons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        const serviceItem = this.closest('.service-item');
+                        const overlay = serviceItem.querySelector('.service-overlay');
+
+                        const isActive = overlay.classList.contains('active');
+
+                        document.querySelectorAll('.service-overlay').forEach(o => {
+                            o.classList.remove('active');
+                        });
+
+                        document.querySelectorAll('.toggle-overlay').forEach(b => {
+                            b.textContent = '?';
+                        });
+
+                        if (!isActive) {
+                            overlay.classList.add('active');
+                            this.textContent = '×';
+                        }
+                    });
+                });
+            });
         </script>
 
     </body>
