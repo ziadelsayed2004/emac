@@ -1618,11 +1618,11 @@ body.rtl .about-img .next {
 .portfolio .portfolio-text h3 {
     margin: 0;
     padding: 0 15px 0 25px;
-    width: calc(100% - 60px);
-    font-size: 20px;
+    width: calc(100% - 50px);
+    font-size: 15px;
     font-weight: 700;
     color: #D72428;
-    text-align: center;
+    text-align: left;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
