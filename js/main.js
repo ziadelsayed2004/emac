@@ -99,18 +99,61 @@
     });
     
     
-    // Portfolio isotope and filter
-    var portfolioIsotope = $('.portfolio-container').isotope({
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
+    $(document).ready(function () {
+        var itemsToShow = 3;
+        var currentFilter = '*';
+        var $container = $('.portfolio-container');
+        var $btn = $('.load-more .btn');
+        var isExpanded = false;
+    
+        var portfolioIsotope = $container.isotope({
+            itemSelector: '.portfolio-item',
+            layoutMode: 'fitRows'
+        });
+    
+        function showItems(filter, expand = false) {
+            var $allItems = $container.find('.portfolio-item');
+            var $filteredItems = (filter === '*') ? $allItems : $allItems.filter(filter);
+    
+            if (expand) {
+                $allItems.hide();
+                $filteredItems.show();
+                $btn.text('View Less');
+                isExpanded = true;
+            } else {
+                $allItems.hide();
+                $filteredItems.slice(0, itemsToShow).show();
+                if ($filteredItems.length <= itemsToShow) {
+                    $btn.hide();
+                } else {
+                    $btn.show().text('Load More');
+                }
+                isExpanded = false;
+            }
+    
+            portfolioIsotope.isotope('layout');
+        }
+    
+        $('#portfolio-flters li').on('click', function () {
+            $('#portfolio-flters li').removeClass('filter-active');
+            $(this).addClass('filter-active');
+            currentFilter = $(this).data('filter');
+            showItems(currentFilter, false);
+        });
+    
+        $btn.on('click', function (e) {
+            e.preventDefault();
+            if (isExpanded) {
+                showItems(currentFilter, false);
+            } else {
+                showItems(currentFilter, true);
+            }
+        });
+    
+        showItems(currentFilter);
     });
+    
 
-    $('#portfolio-flters li').on('click', function () {
-        $("#portfolio-flters li").removeClass('filter-active');
-        $(this).addClass('filter-active');
-
-        portfolioIsotope.isotope({filter: $(this).data('filter')});
-    });
     
 })(jQuery);
 
