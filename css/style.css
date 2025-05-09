@@ -27,7 +27,9 @@ body.rtl .page-header a,
 body.ltr .page-header p, 
 body.rtl .page-header p,
 body.ltr .page-header div, 
-body.rtl .page-header div
+body.rtl .page-header div,
+body.ltr .blog .blog-meta 
+body.rtl .blog .blog-meta 
 {
     text-align: center !important;
 }
