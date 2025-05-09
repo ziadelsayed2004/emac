@@ -106,29 +106,44 @@ a:focus {
     display: none;
     background: #D72428;
     color: #0D0D0D;
-    border: 2.5px solid rgba(104, 18, 18, 0.5);
     width: 44px;
     height: 44px;
     text-align: center;
     line-height: 1;
-    font-size: 22px;
+    font-size: 30px;
+    align-content: center;
     right: 15px;
     bottom: 15px;
     z-index: 9;
-    border-radius: 15px;
+    border-radius: 50%;
     transition: 0.5s;
+    overflow: visible;
 }
 
-.back-to-top:hover {
-    color: #D72428;
-    background: #0D0D0D;
-    border: 2.5px solid rgba(104, 18, 18, 0.75);
-    border-radius: 25px;
+.back-to-top svg.progress-ring {
+    position: absolute;
+    top: -4.75px;
+    left: -5.4px;
+    padding: auto;
+    margin: 0;
+    transform: rotate(-90deg);
+    pointer-events: none;
+}
+
+.progress-ring__circle {
+    transition: stroke-dashoffset 0.3s;
+    stroke-linecap: round;
 }
 
 .back-to-top i {
-    padding-top: 8.5px;
+    position: relative;
+    z-index: 1;
+    transition: ease-in-out 0.3s;
 }
+.back-to-top i:hover {
+    color: white;
+}
+
 
 .btn {
     transition: .3s;

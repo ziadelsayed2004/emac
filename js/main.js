@@ -6,17 +6,46 @@
     
     
     // Back to top button
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 200) {
-            $('.back-to-top').fadeIn('slow');
+    // Back to top button
+$(document).ready(function () {
+    const $backToTop = $('.back-to-top');
+    const $circle = document.querySelector('.progress-ring__circle');
+    const radius = $circle.r.baseVal.value;
+    const circumference = 2 * Math.PI * radius;
+
+    $circle.style.strokeDasharray = `${circumference} ${circumference}`;
+    $circle.style.strokeDashoffset = circumference;
+
+    function setProgress(percent) {
+        const offset = circumference - (percent / 100) * circumference;
+        $circle.style.strokeDashoffset = offset;
+    }
+
+    $(window).on('scroll', function () {
+        const scrollTop = $(this).scrollTop();
+        const docHeight = $(document).height();
+        const winHeight = $(window).height();
+        const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
+
+        // Show/hide button
+        if (scrollTop > 200) {
+            $backToTop.fadeIn('slow');
         } else {
-            $('.back-to-top').fadeOut('slow');
+            $backToTop.fadeOut('slow');
         }
+
+        // Animate progress ring
+        setProgress(scrollPercent);
     });
-    $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
-        return false;
+
+    $backToTop.on('click', function (e) {
+        e.preventDefault();
+        $('html, body').animate({ scrollTop: 0 }, 1000, 'swing'); // guaranteed to work
     });
+});
+
+    
+    
     
     
     // Sticky Navbar
@@ -157,7 +186,7 @@
     
 })(jQuery);
 
-{ // TAP HOVER
+{ // TAP CLICK
 document.querySelectorAll('.service-item').forEach(item => {
     const tapIcon = item.querySelector('.tap-indicator');
   
