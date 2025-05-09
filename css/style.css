@@ -1225,7 +1225,7 @@ body.rtl .about-img .next {
     }
     
     .faqs #accordion-2 {
-        padding-top: 15px;
+        padding-top: 7.5px;
     }
 }
 
@@ -1247,11 +1247,11 @@ body.rtl .about-img .next {
 
 .faqs .card-header a {
     display: block;
-    padding: 15px;
+    padding: 8px 16px 16px 16px;
     width: 100%;
     color: #0D0D0D;
     font-size: 16px;
-    line-height: 40px;
+    line-height: 50px;
     border: 1px solid rgba(0, 0, 0, .1);
     transition: .5s;
     border-radius: 25px;
