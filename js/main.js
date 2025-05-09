@@ -185,6 +185,14 @@
     
 })(jQuery);
 
+{ // NAV CLICK
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        this.classList.toggle('active');
+    });
+    
+    
+}
+
 { // TAP CLICK
 document.querySelectorAll('.service-item').forEach(item => {
     const tapIcon = item.querySelector('.tap-indicator');
