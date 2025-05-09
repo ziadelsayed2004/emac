@@ -12,7 +12,7 @@ const resources = {
         contact: "Contact",
         menu: "EMAC",
         opening_hour: "Opening Hour",
-        opening_hour_val: "Sat - Thu, 8:00 - 9:00",
+        opening_hour_val: "Sat - Thu, 8:00 - 5:00",
         call_us: "Call Us",
         call_us_val: "201226035184",
         email_us: "Email Us",
