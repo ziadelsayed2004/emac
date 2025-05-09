@@ -102,27 +102,40 @@
 
     
     // Blogs carousel
-    $(".related-slider").owlCarousel({
-        autoplay: true,
-        dots: false,
-        loop: true,
-        nav : true,
-        navText : [
-            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
-        ],
-        responsive: {
-            0:{
-                items:1
-            },
-            576:{
-                items:1
-            },
-            768:{
-                items:2
+    $(document).ready(function () {
+        // Detect direction from body class
+        var isRtl = $("body").hasClass("rtl");
+    
+        // Initialize OwlCarousel with RTL support
+        $(".related-slider").owlCarousel({
+            autoplay: true,
+            loop: true,
+            dots: false,
+            nav: true,
+            rtl: isRtl,
+            navText: isRtl
+                ? [
+                    '<i class="fa fa-angle-right" aria-hidden="true"></i>',
+                    '<i class="fa fa-angle-left" aria-hidden="true"></i>'
+                ]
+                : [
+                    '<i class="fa fa-angle-left" aria-hidden="true"></i>', 
+                    '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+                ],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                576: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                }
             }
-        }
+        });
     });
+    
     
     
     $(document).ready(function () {
