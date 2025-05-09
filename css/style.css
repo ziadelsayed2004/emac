@@ -14,7 +14,6 @@ div:focus{
     outline: none;
 }
 
-/* تعديل حجم الصورة داخل الفريم */
 .lb-image {
     width: 75vw !important;
     height: 75vh !important;
