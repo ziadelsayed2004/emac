@@ -6,45 +6,42 @@
     
     
     // Back to top button
-    // Back to top button
-$(document).ready(function () {
-    const $backToTop = $('.back-to-top');
-    const $circle = document.querySelector('.progress-ring__circle');
-    const radius = $circle.r.baseVal.value;
-    const circumference = 2 * Math.PI * radius;
+    $(document).ready(function () {
+        const $backToTop = $('.back-to-top');
+        const $circle = document.querySelector('.progress-ring__circle');
+        const radius = $circle.r.baseVal.value;
+        const circumference = 2 * Math.PI * radius;
 
-    $circle.style.strokeDasharray = `${circumference} ${circumference}`;
-    $circle.style.strokeDashoffset = circumference;
+        $circle.style.strokeDasharray = `${circumference} ${circumference}`;
+        $circle.style.strokeDashoffset = circumference;
 
-    function setProgress(percent) {
-        const offset = circumference - (percent / 100) * circumference;
-        $circle.style.strokeDashoffset = offset;
-    }
-
-    $(window).on('scroll', function () {
-        const scrollTop = $(this).scrollTop();
-        const docHeight = $(document).height();
-        const winHeight = $(window).height();
-        const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
-
-        // Show/hide button
-        if (scrollTop > 200) {
-            $backToTop.fadeIn('slow');
-        } else {
-            $backToTop.fadeOut('slow');
+        function setProgress(percent) {
+            const offset = circumference - (percent / 100) * circumference;
+            $circle.style.strokeDashoffset = offset;
         }
 
-        // Animate progress ring
-        setProgress(scrollPercent);
-    });
+        $(window).on('scroll', function () {
+            const scrollTop = $(this).scrollTop();
+            const docHeight = $(document).height();
+            const winHeight = $(window).height();
+            const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
 
-    $backToTop.on('click', function (e) {
-        e.preventDefault();
-        $('html, body').animate({ scrollTop: 0 }, 1000, 'swing'); // guaranteed to work
-    });
-});
+            // Show/hide button
+            if (scrollTop > 200) {
+                $backToTop.fadeIn('slow');
+            } else {
+                $backToTop.fadeOut('slow');
+            }
 
-    
+            // Animate progress ring
+            setProgress(scrollPercent);
+        });
+
+        $backToTop.on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, 1000, 'swing'); // guaranteed to work
+        });
+    });
     
     
     
@@ -182,7 +179,9 @@ $(document).ready(function () {
         showItems(currentFilter);
     });
     
-
+    $('.collapse').on('show.bs.collapse', function () {
+        $('.collapse').not(this).collapse('hide');
+    });
     
 })(jQuery);
 
