@@ -8,6 +8,59 @@ body {
     font-weight: 400;
 }
 
+body.ltr p:not(.copyright *,.section-header *,.footer-social a),
+body.ltr a:not(.section-header *,.footer-social a),
+body.ltr div:not(.page-header,.section-header *,.footer-social a) {
+  text-align: left;
+  direction: ltr;
+}
+
+body.rtl p:not(.copyright *,.section-header *,.footer-social a),
+body.rtl a:not(.section-header *,.footer-social a),
+body.rtl div:not(.section-header *,.footer-social a) {
+  text-align: right;
+  direction: rtl;
+}
+
+body.ltr .page-header a, 
+body.rtl .page-header a,
+body.ltr .page-header p, 
+body.rtl .page-header p,
+body.ltr .page-header div, 
+body.rtl .page-header div
+{
+    text-align: center !important;
+}
+
+body.ltr .footer h2::after {
+    left: 0;
+    right: auto;
+}
+
+body.rtl .footer h2::after {
+    right: 0;
+    left: auto;
+}
+
+body.ltr .scroll-box p {
+    text-align: left;
+    direction: ltr;
+  }
+  
+body.rtl .scroll-box p {
+    text-align: right;
+    direction: rtl;
+}
+
+body.ltr .back-to-top i {
+    right: -20%;
+  }
+  
+body.rtl .back-to-top i {
+    left: -20%;
+}
+  
+
 a:focus,
 button:focus,
 div:focus{
@@ -1753,9 +1806,6 @@ body.rtl .about-img .next {
     padding: 45px 0;
 }
 
-.contact .row-md-6{
-}
-
 .contact .col-md-6 {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -1904,7 +1954,7 @@ body.rtl .about-img .next {
 
 
 /*******************************/
-/********* Footer CSS **********/
+/*********CSS **********/
 /*******************************/
 .footer {
     position: relative;
