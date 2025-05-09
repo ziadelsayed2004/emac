@@ -375,7 +375,7 @@ document.querySelectorAll('.service-item').forEach(item => {
             width: '640',
             videoId: '_BWlj35lCAM',
             playerVars: {
-                autoplay: 1,
+                autoplay: 0,
                 modestbranding: 1,
                 rel: 0,
                 controls: 1,
@@ -386,7 +386,7 @@ document.querySelectorAll('.service-item').forEach(item => {
             },
             events: {
                 onReady: function (event) {
-                    event.target.playVideo();
+                    // Do nothing on ready
                 },
                 onStateChange: function (event) {
                     if (event.data === YT.PlayerState.ENDED) {
@@ -415,22 +415,44 @@ document.querySelectorAll('.service-item').forEach(item => {
     });
 
     // Detect Pause by user (but ignore if it's from seeking)
+    let lastCheckTime = 0;
+
     setInterval(() => {
         if (player && player.getPlayerState) {
             const state = player.getPlayerState();
+            const currentTime = player.getCurrentTime();
+    
+            // Detect if user is seeking (sudden jump in time)
+            if (Math.abs(currentTime - lastCheckTime) > 1.5) {
+                userIsSeeking = true;
+                setTimeout(() => userIsSeeking = false, 1500);
+            }
+    
+            lastCheckTime = currentTime;
+    
             if (state === YT.PlayerState.PAUSED && !userIsSeeking) {
-                lastTime = player.getCurrentTime();
+                lastTime = currentTime;
                 videoWrapper.style.display = "none";
                 btnPlay.style.display = "inline-block";
             }
         }
     }, 500);
 
-    // Listen for seeking (rough detection using mouse down on player)
+    // Detect seeking (click or touch)
+    const startSeeking = () => {
+        userIsSeeking = true;
+        setTimeout(() => userIsSeeking = false, 1000); // short buffer time to prevent hiding
+    };
+
     document.addEventListener('mousedown', (e) => {
         if (e.target.closest('#yt-player')) {
-            userIsSeeking = true;
-            setTimeout(() => userIsSeeking = false, 1000); // short buffer time to prevent hiding
+            startSeeking();
+        }
+    });
+
+    document.addEventListener('touchstart', (e) => {
+        if (e.target.closest('#yt-player')) {
+            startSeeking();
         }
     });
 }
