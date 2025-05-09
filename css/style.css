@@ -782,7 +782,7 @@ a:focus {
 }
 
 .feature .feature-text {
-    padding-left: 30px;
+    padding: 30px;
 }
 
 .feature .feature-text h3 {
